@@ -1,4 +1,5 @@
 import os
+import traceback
 init = False
 
 
@@ -7,7 +8,6 @@ def get_test_name():
 
 
 class Calculator:
-    name = 'calculator'
     set_function_count = 0
     test_name = ''
 
@@ -27,14 +27,16 @@ class Calculator:
     def calc(self, a, b):
         assert self.test_name == get_test_name(), "Do you use parametrize?"
         assert self.__func is not None, "no set function"
-        return self.__func(self, a, b)
+        return self.__func(a, b)
 
 
-def add(self, a, b):
-    assert self.name == 'calculator'
+def add(a, b):
+    st = traceback.extract_stack()
+    assert st[len(st)-2].name == 'calc', "do you cal me via calc function?"
     return a + b
 
 
-def multiply(self, a, b):
-    assert self.name == 'calculator'
+def multiply(a, b):
+    st = traceback.extract_stack()
+    assert st[len(st) - 2].name == 'calc', "do you cal me via calc function?"
     return a * b
