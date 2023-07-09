@@ -9,6 +9,6 @@ Write 2 tests for each `Add` and `Multiply` function, without changing the calcu
 
     1. run command pip install -r requirements.txt 
 
-    2 . run command   "python pytest  tests/test_calculator.py"  for all tests   OR use  ::  and specific test  
+    2 . run command   "python pytest test_calculator.py"  for all tests   OR use  ::  and specific test  
 
-                    for ex : python pytest tests/test_calculator.py::test_add 
+                    for ex : python pytest test_calculator.py::test_add 
